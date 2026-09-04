@@ -2,6 +2,7 @@ const telaInicial = document.getElementById("telaInicial");
 const telaJogo = document.getElementById("telaJogo");
 const telaFinal = document.getElementById("telaFinal");
 
+const jogadorInicial = document.getElementById("jogadorInicial");
 const botaoReiniciar = document.getElementById("reiniciarPartida");
 
 const botaoNovoJogo =
@@ -1035,6 +1036,7 @@ const categorias = [
 
 ];
 
+let ultimoJogador = null;
 let ultimaCategoria = null;
 
 function atualizarJogadores() {
@@ -1308,6 +1310,22 @@ function iniciarPartida () {
 
             //mostra a tela final
             telaFinal.style.display = "block";
+
+            let numeroSorteado;
+
+            do {
+                numeroSorteado = Math.floor(
+                    Math.random() * jogadores.length
+                );
+
+            } while (
+                jogadores[numeroSorteado] === ultimoJogador
+            );
+
+            ultimoJogador = jogadores[numeroSorteado];
+
+            jogadorInicial.textContent = "O jogador inicial é: " + jogadores[numeroSorteado];
+
 
             return;
 
