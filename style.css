@@ -47,12 +47,16 @@ h2 {
 
 #telajogo {
     flex-direction: column;
+    display: flex;
 
     align-items: center;
 
     text-align: center;
 
     width: 100%;
+
+    min-height: 100vh;
+    padding-bottom: 50px;
 }
 
  /* INPUTS */
@@ -101,6 +105,8 @@ h2 {
     cursor: pointer;
 
     transition: 0.2s;
+
+    margin-bottom: 15px;
  }
 
  /* EFEITO AO PASSAR O MOUSE */
@@ -209,4 +215,8 @@ h2 {
     background: #4a2020;
 
     color: white;
+}
+
+.botoesInferiores {
+    margin-top: auto;
 }

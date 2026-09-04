@@ -2,6 +2,8 @@ const telaInicial = document.getElementById("telaInicial");
 const telaJogo = document.getElementById("telaJogo");
 const telaFinal = document.getElementById("telaFinal");
 
+const botaoReiniciar = document.getElementById("reiniciarPartida");
+
 const botaoNovoJogo =
     document.getElementById("novoJogo");
 
@@ -24,6 +26,9 @@ const tituloJogadores =
 
 const avisoJogadores =
     document.getElementById("avisoJogadores");
+
+const sairPartida =
+    document.getElementById("sairPartida");
 
 const categorias = [
 
@@ -1125,9 +1130,11 @@ botaoAdicionar.addEventListener("click", function () {
 
 });
 
-const botaoComecar = document.getElementById("comecarJogo");
+function iniciarPartida () {
 
-botaoComecar.addEventListener("click", function() {
+    botaoMostrar.style.display = "block";
+
+    palavraSecreta.style.display = "none";
 
     //pega os inputs que possuam a classe "Jogador"
     const inputs = document.querySelectorAll(".jogador");
@@ -1311,6 +1318,14 @@ botaoComecar.addEventListener("click", function() {
 
     };
 
+}
+
+const botaoComecar = document.getElementById("comecarJogo");
+
+botaoComecar.addEventListener("click", function() {
+
+    iniciarPartida();
+
 });
 
 botaoNovoJogo.addEventListener("click", function(){
@@ -1319,6 +1334,20 @@ botaoNovoJogo.addEventListener("click", function(){
     telaFinal.style.display = "none";
 
     //Mostra a tela inicial
+    telaInicial.style.display = "block";
+
+})
+
+botaoReiniciar.addEventListener("click", function(){
+
+    iniciarPartida();
+
+})
+
+sairPartida.addEventListener("click", function(){
+
+    telaJogo.style.display = "none";
+
     telaInicial.style.display = "block";
 
 })
