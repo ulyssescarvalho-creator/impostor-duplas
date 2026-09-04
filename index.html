@@ -1,0 +1,89 @@
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+
+        <title>Impostor de Duplas</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+
+            <!-- TELA DE CONFIGURAÇÃO -->
+
+            <div id="telaInicial">
+
+                <h1>Impostor de Duplas</h1>
+
+                <h2 id="tituloJogadores">
+                    Jogadores (0/6)
+                </h2>
+
+                <div id="listaJogadores">
+
+                </div>
+
+                <p id="avisoJogadores"> 
+                    Mínimo: 5 jogadores
+                </p>
+
+                <button id="adicionarJogador">
+                    + Adicionar jogador
+                </button>
+
+                <br><br>
+
+                <button id="comecarJogo">
+                    Começar jogo
+                </button>
+
+            </div>
+
+            <!-- TELA DO JOGO -->
+            <div id="telaJogo" style="display: none;">
+
+                <h1 id="nomeJogador">
+
+                    É a vez de...
+
+                </h1>
+
+                <button id="mostrarPalavra">
+                    Mostrar minha palavra
+                </button>
+
+                <div id="palavraSecreta" style="display: none;">
+
+                    <h2 id="tipoJogador"></h2>
+
+                    <h1 id="palavraJogador"></h1>
+
+                    <button id="esconderPalavra">
+                        Esconder e passar
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="telaFinal" style="display: none;">
+
+                <h1>Todos receberam seus papéis!</h1>
+
+                <p>
+                    Agora conversem e tentem descobrir quem é a sua dupla.
+                </p>
+
+                <h2>Boa sorte!</h2>
+
+                <button id="novoJogo">
+                    Novo jogo
+                </button>
+
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

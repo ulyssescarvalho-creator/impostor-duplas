@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #181818;
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+
+    min-height: 100vh;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Títulos */ 
+
+h1 {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+/* TELAS */
+
+#telajogo {
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+ /* INPUTS */
+
+ input {
+    width: 100%;
+
+    padding: 15px;
+
+    margin: 7px 0;
+
+    font-size: 16px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #303030;
+
+    color: white;
+ }
+
+ input::placeholder {
+    color:#aaaaaa;
+ }
+
+ /* BOTÕES */
+
+ button {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 10px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+ }
+
+ /* EFEITO AO PASSAR O MOUSE */
+
+ button:hover {
+    transform: scale(1.02);
+}
+
+/* BOTÃO ADICIONAR */
+
+#adicionarJogador {
+    background: #303030;
+
+    color: white;
+}
+
+/* BOTÃO COMEÇAR */
+
+#comecarJogo {
+    background: #7c3aed;
+
+    color: white;
+
+    margin-top: 25px;
+}
+
+/* BOTÃO MOSTRAR */
+
+#mostrarPalavra {
+    background: #ffffff;
+
+    color: #181818;
+
+    max-width: 350px;
+}
+
+/* ÁREA SECRETA */
+
+#palavraSecreta {
+    margin-top: 30px;
+
+    width: 100%;
+}
+
+/* TIPO DO JOGADOR */
+
+#tipoJogador {
+    margin-top: 30px;
+}
+
+/* PALAVRA */
+
+#palavraJogador {
+    font-size: 38px;
+
+    margin: 20px 0;
+
+    color: #a78bfa;
+}
+
+/* BOTÃO ESCONDER */
+
+#esconderPalavra {
+    background: #303030;
+
+    color: white;
+
+   max-width: 350px;
+}
+
+/* TELA FINAL */
+
+#telaFinal {
+    padding-top: 100px;
+}
+
+#novoJogo {
+    background: #7c3aed;
+
+    color: white;
+
+    margin-top: 30px;
+}
+
+.jogadorDiv {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.jogadorDiv input {
+    flex: 1;
+}
+
+
+.removerJogador {
+    width: auto;
+
+    margin: 0;
+
+    padding: 14px;
+
+    background: #4a2020;
+
+    color: white;
+}
