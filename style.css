@@ -243,5 +243,6 @@ h2 {
 }
 
 .botoesTempo button {
-    padding: 10px 15px;
+    width: auto;
+    flex: 1;
 }
