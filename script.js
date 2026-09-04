@@ -4,6 +4,8 @@ const telaFinal = document.getElementById("telaFinal");
 
 const jogadorInicial = document.getElementById("jogadorInicial");
 const botaoReiniciar = document.getElementById("reiniciarPartida");
+const timerPartida = document.getElementById("timerPartida");
+const mensagemFim = document.getElementById("mensagemFim");
 
 const botaoNovoJogo =
     document.getElementById("novoJogo");
@@ -30,6 +32,19 @@ const avisoJogadores =
 
 const sairPartida =
     document.getElementById("sairPartida");
+
+const tempoSelecionadoTexto = document.getElementById("tempoSelecionado");
+
+const menos10 = document.getElementById("menos10");
+const menos30 = document.getElementById("menos30");
+const menos60 = document.getElementById("menos60");
+
+const mais10 = document.getElementById("mais10");
+const mais30 = document.getElementById("mais30");
+const mais60 = document.getElementById("mais60");
+
+let tempoSelecionado = 300;
+let tempoRestante;
 
 const categorias = [
 
@@ -1065,6 +1080,122 @@ function atualizarJogadores() {
 
 }
 
+function atualizarTempoSelecionado() {
+
+    const minutos = Math.floor(tempoSelecionado / 60);
+
+    const segundos = tempoSelecionado % 60;
+
+    tempoSelecionadoTexto.textContent =
+        String(minutos).padStart(2, "0") +
+        ":" +
+        String(segundos).padStart(2, "0");
+
+}
+
+function iniciarTimer () {
+    const intervalo = setInterval(function(){
+
+        tempoRestante--;
+
+        atualizarTimerPartida();
+
+        if (tempoRestante <= 0) {
+
+            clearInterval(intervalo);
+
+            mensagemFim.textContent = "O tempo acabou, escolham suas duplas!"
+
+            mensagemDeInicio.style.display = "none";
+            boaSorte.style.display = "none";
+        }
+
+    }, 1000);
+}
+
+mais10.addEventListener("click", function(){
+
+    tempoSelecionado += 10;
+
+    atualizarTempoSelecionado();
+
+})
+
+mais30.addEventListener("click", function(){
+
+    tempoSelecionado += 30;
+
+    atualizarTempoSelecionado();
+
+})
+
+mais60.addEventListener("click", function(){
+
+    tempoSelecionado += 60;
+
+    atualizarTempoSelecionado();
+
+})
+
+menos10.addEventListener("click", function(){
+
+    if (tempoSelecionado >= 10) {
+
+        tempoSelecionado -= 10;
+
+        atualizarTempoSelecionado();
+
+    } else {
+        tempoSelecionado = 0;
+
+        atualizarTempoSelecionado();
+    }
+
+})
+
+menos30.addEventListener("click", function(){
+
+    if (tempoSelecionado >= 30) {
+
+        tempoSelecionado -= 30;
+
+        atualizarTempoSelecionado();
+
+    } else {
+        tempoSelecionado = 0;
+
+        atualizarTempoSelecionado();
+    }
+})
+
+menos60.addEventListener("click", function(){
+
+    if (tempoSelecionado >= 60) {
+
+        tempoSelecionado -= 60;
+
+        atualizarTempoSelecionado();
+
+    } else {
+        tempoSelecionado = 0;
+
+        atualizarTempoSelecionado();
+    }
+
+})
+
+function atualizarTimerPartida() {
+
+    const minutos = Math.floor(tempoRestante / 60);
+
+    const segundos = tempoRestante % 60;
+
+    timerPartida.textContent =
+        String(minutos).padStart(2,"0") +
+        ":" +
+        String(segundos).padStart(2,"0");
+}
+
 botaoAdicionar.addEventListener("click", function () {
 
     const quantidade =
@@ -1133,6 +1264,10 @@ botaoAdicionar.addEventListener("click", function () {
 });
 
 function iniciarPartida () {
+
+    boaSorte.style.display = "block";
+    mensagemDeInicio.style.display = "block";
+    mensagemFim.textContent = "";
 
     botaoMostrar.style.display = "block";
 
@@ -1326,6 +1461,11 @@ function iniciarPartida () {
 
             jogadorInicial.textContent = "O jogador inicial é: " + jogadores[numeroSorteado];
 
+            tempoRestante = tempoSelecionado;
+
+            atualizarTimerPartida();
+
+            iniciarTimer();
 
             return;
 
